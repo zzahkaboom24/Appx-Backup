@@ -4,10 +4,7 @@ param (
 	[string] $WSAppPath,
 
 	[Parameter(Mandatory=$True)]
-	[string] $WSAppOutputPath,
-
-	[Parameter(Mandatory=$True)]
-	[string] $WSTools
+	[string] $WSAppOutputPath
 )
 
 function Run-Process {
@@ -27,29 +24,33 @@ function Run-Process {
 	return $output
 }
 
+$PWD=Get-Location
+$WSTools="$PWD\tool\x64"
+
 # find tools
-$FileExists = Test-Path "$WSTools\MakeAppx.exe"
+$FileExists = Test-Path "$WSTools\makeappx.exe"
 if ($FileExists -eq $False) {
 	Write-Output "ERROR: MakeAppx.exe not found in WSTools path."
 	Exit
 }
-$FileExists = Test-Path "$WSTools\MakeCert.exe"
+$FileExists = Test-Path "$WSTools\makecert.exe"
 if ($FileExists -eq $False) {
 	Write-Output "ERROR: MakeCert.exe not found in WSTools path."
 	Exit
 }
-$FileExists = Test-Path "$WSTools\Pvk2Pfx.exe"
+$FileExists = Test-Path "$WSTools\pvk2pfx.exe"
 if ($FileExists -eq $False) {
 	Write-Output "ERROR: Pvk2Pfx.exe not found in WSTools path."
 	Exit
 }
-$FileExists = Test-Path "$WSTools\SignTool.exe"
+$FileExists = Test-Path "$WSTools\signtool.exe"
 if ($FileExists -eq $False) {
 	Write-Output "ERROR: SignTool.exe not found in WSTools path."
 	Exit
 }
 
 $WSAppXmlFile="AppxManifest.xml"
+
 
 # read manifest
 Write-Output "Reading ""$WSAppPath\$WSAppXmlFile"""

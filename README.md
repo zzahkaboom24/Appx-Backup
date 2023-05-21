@@ -9,7 +9,7 @@ You will need to have some tools installed for this to work. These tools are par
 
 Example Usage (open a Powershell prompt):
 ```powershell
-PS C:\temp> .\Appx-Backup.ps1 -WSAppPath "C:\Program Files\WindowsApps\Disney.Wreck-itRalph_1.0.0.12_x86__6rarf9sa4v8jt" -WSAppOutputPath "C:\Temp" -WSTools "C:\Program Files (x86)\Windows Kits\10\bin\x86"
+PS C:\temp> .\Appx-Backup.ps1 -WSAppPath "C:\Program Files\WindowsApps\APPNAME" -WSAppOutputPath "C:\Temp"
 Reading "C:\Program Files\WindowsApps\Disney.Wreck-itRalph_1.0.0.12_x86__6rarf9sa4v8jt\AppxManifest.xml"
   App Name : Disney.Wreck-itRalph
   Publisher: CN=58DECE39-D5D0-4293-AAA0-9AF8484F12E2
